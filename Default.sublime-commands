@@ -1,0 +1,38 @@
+[
+    {
+        "caption": "SublimeEmberNav: List models",
+        "command": "list_ember_models"
+    },
+    {
+        "caption": "SublimeEmberNav: List controllers",
+        "command": "list_ember_controllers"
+    },
+    {
+        "caption": "SublimeEmberNav: List views",
+        "command": "list_ember_views"
+    },
+    {
+        "caption": "SublimeEmberNav: List templates",
+        "command": "list_ember_templates"
+    },
+    {
+        "caption": "SublimeEmberNav: List mixins",
+        "command": "list_ember_mixins"
+    },
+    {
+        "caption": "SublimeEmberNav: List adapters",
+        "command": "list_ember_adapters"
+    },
+    {
+        "caption": "SublimeEmberNav: List statechart files",
+        "command": "list_ember_states"
+    },
+    {
+        "caption": "SublimeEmberNav: Open application file",
+        "command": "open_ember_application_file"
+    },
+    {
+        "caption": "SublimeEmberNav: Open file",
+        "command": "open_ember_file"
+    }
+]

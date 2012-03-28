@@ -1,0 +1,13 @@
+{
+  "root":                 [""],
+
+  "models_location":      ["models"],
+  "controllers_location": ["controllers"],
+  "views_location":       ["views"],
+  "templates_location":   ["templates"],
+  "mixins_location":      ["mixins"],
+  "adapters_location":    ["adapters"],
+  "states_location":      ["states"],
+
+  "application_file":     ["app(?:.js)(?:.coffee)?"]
+}
