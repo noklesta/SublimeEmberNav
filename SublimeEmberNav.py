@@ -5,6 +5,8 @@ import sublime_plugin
 from recursive_glob import rglob
 from lib.inflector import *
 
+JS_EXTENSIONS = '(?:js|(?:js.)?coffee)'
+
 
 class EmberCommandBase(sublime_plugin.WindowCommand):
     def prepare_run(self):
@@ -65,7 +67,7 @@ class EmberCommandBase(sublime_plugin.WindowCommand):
         elif key == 'states':
             return os.path.join(self.root, *self.get_setting('states_location'))
 
-    def show_files(self, path, file_pattern='\.(?:js|coffee)$'):
+    def show_files(self, path, file_pattern='\.' + JS_EXTENSIONS + '$'):
         self.files = rglob(path, file_pattern)
 
         view = self.window.active_view()
@@ -126,10 +128,12 @@ class ListEmberModelsCommand(EmberCommandBase):
         if self.controllers_location in current_file:
             m = re.search(r'(?:(?:selected|current)_)?(\w+)_controller\.\w+$', current_file)
             singular = Inflector().singularize(m.group(1))
-            pattern = '{0}{1}.(?:js|coffee)'.format(
+            pattern = '{0}{1}.{2}'.format(
                os.path.join(self.models_location + '.*', ''),
-               singular
+               singular,
+               JS_EXTENSIONS
             )
+            print pattern
             return [pattern]
         else:
             return []
@@ -153,9 +157,10 @@ class ListEmberControllersCommand(EmberCommandBase):
         if self.models_location in current_file:
             m = re.search(r'(\w+)\.\w+$', current_file)
             plural = Inflector().pluralize(m.group(1))
-            pattern = '{0}(?:(?:selected|current)_)?{1}_controller.(?:js|coffee)'.format(
+            pattern = '{0}(?:(?:selected|current)_)?{1}_controller.{2}'.format(
                 os.path.join(self.controllers_location + '.*', ''),
-                plural
+                plural,
+                JS_EXTENSIONS
             )
             return [pattern]
         else:

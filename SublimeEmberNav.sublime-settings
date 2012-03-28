@@ -9,5 +9,5 @@
   "adapters_location":    ["adapters"],
   "states_location":      ["states"],
 
-  "application_file":     ["app(?:.js)(?:.coffee)?"]
+  "application_file":     ["app.(?:js|(?:js.)?coffee)"]
 }
