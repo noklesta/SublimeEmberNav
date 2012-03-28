@@ -133,7 +133,6 @@ class ListEmberModelsCommand(EmberCommandBase):
                singular,
                JS_EXTENSIONS
             )
-            print pattern
             return [pattern]
         else:
             return []
@@ -160,6 +159,36 @@ class ListEmberControllersCommand(EmberCommandBase):
             pattern = '{0}(?:(?:selected|current)_)?{1}_controller.{2}'.format(
                 os.path.join(self.controllers_location + '.*', ''),
                 plural,
+                JS_EXTENSIONS
+            )
+            return [pattern]
+        else:
+            return []
+
+
+class ListEmberViewsCommand(EmberCommandBase):
+    def run(self):
+        if not self.prepare_run():
+            return
+
+        self.views_location = self.get_location('views')
+        self.templates_location = self.get_location('templates')
+
+        if self.views_location and self.templates_location:
+            self.show_files(self.views_location)
+
+    def is_listing_current_file_group(self, current_file):
+        return self.views_location in current_file
+
+    def construct_related_file_patterns(self, current_file):
+        if self.templates_location in current_file:
+            m = re.search(r'(?P<name>\w+)\.\w+$', current_file)
+            name = m.group('name')
+            if not name.endswith('_view'):
+                name = name + '_view'
+            pattern = '{0}{1}.{2}'.format(
+                os.path.join(self.views_location + '.*', ''),
+                name,
                 JS_EXTENSIONS
             )
             return [pattern]
