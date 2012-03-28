@@ -92,7 +92,7 @@ The defaults are as follows:
     "adapters_location":    ["adapters"],
     "states_location":      ["states"],
 
-    "application_file":     ["app(?:.js)(?:.coffee)?"]
+    "application_file":     ["app.(?:js|(?:js.)?coffee)"]
 
 These settings are found in SublimeEmberNav.sublime-settings and may be
 overridden either in Packages/User/SublimeEmberNav.sublime-settings or, for a
