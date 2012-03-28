@@ -122,7 +122,6 @@ Project menu):
 ## Credits
 
 - Python version of the Rails inflector: <https://bitbucket.org/ixmatus/inflector>
-- Contains a modified version of a small code snippet from the Git package for ST2.
 
 ## Licence
 
