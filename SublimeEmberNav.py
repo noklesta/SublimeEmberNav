@@ -123,7 +123,7 @@ class ListEmberModelsCommand(EmberCommandBase):
         return self.models_location in current_file
 
     def construct_related_file_patterns(self, current_file):
-        if os.path.join(self.root, self.controllers_location) in current_file:
+        if self.controllers_location in current_file:
             m = re.search(r'(?:(?:selected|current)_)?(\w+)_controller\.\w+$', current_file)
             singular = Inflector().singularize(m.group(1))
             pattern = os.path.join(self.models_location + '.*', '') + singular + '.(?:js|coffee)'
