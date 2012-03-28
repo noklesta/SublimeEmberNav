@@ -126,7 +126,10 @@ class ListEmberModelsCommand(EmberCommandBase):
         if self.controllers_location in current_file:
             m = re.search(r'(?:(?:selected|current)_)?(\w+)_controller\.\w+$', current_file)
             singular = Inflector().singularize(m.group(1))
-            pattern = os.path.join(self.models_location + '.*', '') + singular + '.(?:js|coffee)'
+            pattern = '{0}{1}.(?:js|coffee)'.format(
+               os.path.join(self.models_location + '.*', ''),
+               singular
+            )
             return [pattern]
         else:
             return []
@@ -150,7 +153,10 @@ class ListEmberControllersCommand(EmberCommandBase):
         if self.models_location in current_file:
             m = re.search(r'(\w+)\.\w+$', current_file)
             plural = Inflector().pluralize(m.group(1))
-            pattern = os.path.join(self.root, self.controllers_location + '.*', '') + plural + '.(?:js|coffee)'
+            pattern = '{0}(?:(?:selected|current)_)?{1}_controller.(?:js|coffee)'.format(
+                os.path.join(self.controllers_location + '.*', ''),
+                plural
+            )
             return [pattern]
         else:
             return []
