@@ -6,6 +6,7 @@ from recursive_glob import rglob
 from lib.inflector import *
 
 JS_EXTENSIONS = '(?:js|(?:js.)?coffee)(?:.erb)?'
+TEMPLATE_EXTENSIONS = 'handlebars(?:.erb)?'
 
 
 class EmberCommandBase(sublime_plugin.WindowCommand):
@@ -190,6 +191,33 @@ class ListEmberViewsCommand(EmberCommandBase):
                 os.path.join(self.views_location + '.*', ''),
                 name,
                 JS_EXTENSIONS
+            )
+            return [pattern]
+        else:
+            return []
+
+
+class ListEmberTemplatesCommand(EmberCommandBase):
+    def run(self):
+        if not self.prepare_run():
+            return
+
+        self.templates_location = self.get_location('templates')
+        self.views_location = self.get_location('views')
+
+        if self.templates_location and self.views_location:
+            self.show_files(self.templates_location, '\.' + TEMPLATE_EXTENSIONS + '$')
+
+    def is_listing_current_file_group(self, current_file):
+        return self.templates_location in current_file
+
+    def construct_related_file_patterns(self, current_file):
+        if self.views_location in current_file:
+            m = re.search(r'(?P<name>\w+)_view\.\w+$', current_file)
+            pattern = '{0}{1}(?:_view)?.{2}'.format(
+                os.path.join(self.templates_location + '.*', ''),
+                m.group('name'),
+                TEMPLATE_EXTENSIONS
             )
             return [pattern]
         else:
