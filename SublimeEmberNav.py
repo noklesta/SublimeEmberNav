@@ -256,3 +256,20 @@ class ListEmberDataCommand(EmberCommandBase):
 
     def construct_related_file_patterns(self, current_file):
         return []
+
+
+class ListEmberStatesCommand(EmberCommandBase):
+    def run(self):
+        if not self.prepare_run():
+            return
+
+        self.states_location = self.get_location('states')
+
+        if self.states_location:
+            self.show_files(self.states_location)
+
+    def is_listing_current_file_group(self, current_file):
+        return self.states_location in current_file
+
+    def construct_related_file_patterns(self, current_file):
+        return []
