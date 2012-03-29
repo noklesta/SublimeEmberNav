@@ -9,5 +9,5 @@
   "data_location":        ["data"],
   "states_location":      ["states"],
 
-  "application_file":     ["app.(?:js|(?:js.)?coffee)(?:.erb)?"]
+  "application_file":     "app.(?:js|(?:js.)?coffee)(?:.erb)?"
 }

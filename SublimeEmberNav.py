@@ -273,3 +273,14 @@ class ListEmberStatesCommand(EmberCommandBase):
 
     def construct_related_file_patterns(self, current_file):
         return []
+
+
+class OpenEmberApplicationFileCommand(EmberCommandBase):
+    def run(self):
+        if not self.prepare_run():
+            return
+
+        pattern = '^{0}$'.format(self.get_setting('application_file'))
+        res = filter(lambda filename: re.match(pattern, filename), os.listdir(self.root))
+        if len(res):
+            self.window.open_file(os.path.join(self.root, res[0]))
