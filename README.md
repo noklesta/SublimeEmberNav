@@ -6,9 +6,11 @@ Navigator](https://github.com/noklesta/SublimeRailsNav) and can be used in
 combination with that plugin to navigate the Ember.js part of a Rails
 application, but it can also be used for any other Ember.js project.
 
-The plugin provides commands for listing models, controllers, views,
-templates, mixins, data adapters, stores, and statechart files in a quick
-panel for easy selection. Both JavaScript and CoffeeScript are supported.
+The plugin provides commands for listing the following file types in a quick
+panel for easy selection: models, controllers, views, templates, mixins, data
+adapters, stores, statechart files, the main application file, and any other
+file located in the root directory of an Ember.js application. Both JavaScript
+and CoffeeScript are supported.
 
 Your are free to name your files however you want, and the location of each
 type of file can be customized either per user or per project (see below).
