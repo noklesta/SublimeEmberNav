@@ -65,14 +65,26 @@ your own key bindings like this:
 
     { "keys": ["super+ctrl+m"], "command": "list_ember_models" },
     { "keys": ["super+ctrl+c"], "command": "list_ember_controllers" },
-    etc...
+    { "keys": ["super+ctrl+v"], "command": "list_ember_views" },
+    { "keys": ["super+ctrl+t"], "command": "list_ember_templates" },
+    { "keys": ["super+ctrl+i"], "command": "list_ember_mixins" },
+    { "keys": ["super+ctrl+a"], "command": "list_ember_data" },
+    { "keys": ["super+ctrl+s"], "command": "list_ember_states" },
+    { "keys": ["super+ctrl+0"], "command": "open_ember_application_file" },
+    { "keys": ["super+ctrl+r"], "command": "open_ember_root_file" }
 
 If you are using Vintage mode and want to use sequences of non-modifier keys,
 you can restrict the key bindings to command mode like this:
 
     { "keys": [" ", "m"], "command": "list_ember_models", "context": [{"key": "setting.command_mode"}] },
     { "keys": [" ", "c"], "command": "list_ember_controllers", "context": [{"key": "setting.command_mode"}] },
-    etc...
+    { "keys": [" ", "v"], "command": "list_ember_views", "context": [{"key": "setting.command_mode"}] },
+    { "keys": [" ", "t"], "command": "list_ember_templates", "context": [{"key": "setting.command_mode"}] },
+    { "keys": [" ", "i"], "command": "list_ember_mixins", "context": [{"key": "setting.command_mode"}] },
+    { "keys": [" ", "a"], "command": "list_ember_data", "context": [{"key": "setting.command_mode"}] },
+    { "keys": [" ", "s"], "command": "list_ember_states", "context": [{"key": "setting.command_mode"}] },
+    { "keys": [" ", "0"], "command": "open_ember_application_file", "context": [{"key": "setting.command_mode"}] },
+    { "keys": [" ", "r"], "command": "open_ember_root_file", "context": [{"key": "setting.command_mode"}] }
 
 All commands are also available from the Command Palette (search for commands
 beginning with "Simple Ember.js Navigator").
