@@ -19,8 +19,9 @@ active view is an Ember model and you request a list of controllers, the
 controller(s) corresponding to the model will be listed at the top.
 
 The following examples illustrate the conventions needed for the related files
-feature to work (file names can end in either `.js`, `.coffee` or
-`.js.coffee`, and the files may be located in subfolders):
+feature to work (the file names can end in either `.js`, `.coffee` or
+`.js.coffee`, possibly with an additional `.erb` suffix for Rails, and the
+files may be located in subfolders):
 
 A `Post` model, a corresponding controller for listing posts, and a controller
 for the currently selected post:
@@ -92,7 +93,7 @@ The defaults are as follows:
     "adapters_location":    ["adapters"],
     "states_location":      ["states"],
 
-    "application_file":     ["app.(?:js|(?:js.)?coffee)"]
+    "application_file":     ["app.(?:js|(?:js.)?coffee)(?:.erb)?"]
 
 These settings are found in SublimeEmberNav.sublime-settings and may be
 overridden either in Packages/User/SublimeEmberNav.sublime-settings or, for a

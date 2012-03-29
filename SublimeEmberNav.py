@@ -5,7 +5,7 @@ import sublime_plugin
 from recursive_glob import rglob
 from lib.inflector import *
 
-JS_EXTENSIONS = '(?:js|(?:js.)?coffee)'
+JS_EXTENSIONS = '(?:js|(?:js.)?coffee)(?:.erb)?'
 
 
 class EmberCommandBase(sublime_plugin.WindowCommand):
