@@ -222,3 +222,20 @@ class ListEmberTemplatesCommand(EmberCommandBase):
             return [pattern]
         else:
             return []
+
+
+class ListEmberMixinsCommand(EmberCommandBase):
+    def run(self):
+        if not self.prepare_run():
+            return
+
+        self.mixins_location = self.get_location('mixins')
+
+        if self.mixins_location:
+            self.show_files(self.mixins_location)
+
+    def is_listing_current_file_group(self, current_file):
+        return self.mixins_location in current_file
+
+    def construct_related_file_patterns(self, current_file):
+        return []
