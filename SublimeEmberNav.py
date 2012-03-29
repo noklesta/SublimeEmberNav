@@ -284,3 +284,20 @@ class OpenEmberApplicationFileCommand(EmberCommandBase):
         res = filter(lambda filename: re.match(pattern, filename), os.listdir(self.root))
         if len(res):
             self.window.open_file(os.path.join(self.root, res[0]))
+
+
+class OpenEmberRootFileCommand(EmberCommandBase):
+    def run(self):
+        if not self.prepare_run():
+            return
+
+        # Get the full path for each entry in the root directory of the Ember app
+        candidates = map(lambda entry: os.path.join(self.root, entry), os.listdir(self.root))
+
+        # Exclude directories
+        self.files = filter(lambda candidate: os.path.isfile(candidate), candidates)
+
+        # Show only filenames in quick panel
+        filenames = map(lambda path: os.path.basename(path), self.files)
+
+        self.window.show_quick_panel(filenames, self.file_selected)
