@@ -6,7 +6,7 @@
   "views_location":       ["views"],
   "templates_location":   ["templates"],
   "mixins_location":      ["mixins"],
-  "adapters_location":    ["adapters"],
+  "data_location":        ["data"],
   "states_location":      ["states"],
 
   "application_file":     ["app.(?:js|(?:js.)?coffee)(?:.erb)?"]

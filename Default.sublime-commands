@@ -20,8 +20,8 @@
         "command": "list_ember_mixins"
     },
     {
-        "caption": "SublimeEmberNav: List adapters",
-        "command": "list_ember_adapters"
+        "caption": "SublimeEmberNav: List adapters and stores",
+        "command": "list_ember_data"
     },
     {
         "caption": "SublimeEmberNav: List statechart files",

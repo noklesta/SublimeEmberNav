@@ -63,8 +63,8 @@ class EmberCommandBase(sublime_plugin.WindowCommand):
             return os.path.join(self.root, *self.get_setting('templates_location'))
         elif key == 'mixins':
             return os.path.join(self.root, *self.get_setting('mixins_location'))
-        elif key == 'adapters':
-            return os.path.join(self.root, *self.get_setting('adapters_location'))
+        elif key == 'data':
+            return os.path.join(self.root, *self.get_setting('data_location'))
         elif key == 'states':
             return os.path.join(self.root, *self.get_setting('states_location'))
 
@@ -236,6 +236,23 @@ class ListEmberMixinsCommand(EmberCommandBase):
 
     def is_listing_current_file_group(self, current_file):
         return self.mixins_location in current_file
+
+    def construct_related_file_patterns(self, current_file):
+        return []
+
+
+class ListEmberDataCommand(EmberCommandBase):
+    def run(self):
+        if not self.prepare_run():
+            return
+
+        self.data_location = self.get_location('data')
+
+        if self.data_location:
+            self.show_files(self.data_location)
+
+    def is_listing_current_file_group(self, current_file):
+        return self.data_location in current_file
 
     def construct_related_file_patterns(self, current_file):
         return []

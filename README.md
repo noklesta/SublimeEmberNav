@@ -7,8 +7,8 @@ combination with that plugin to navigate the Ember.js part of a Rails
 application, but it can also be used for any other Ember.js project.
 
 The plugin provides commands for listing models, controllers, views,
-templates, mixins, data adapters, and statechart files in a quick panel for
-easy selection. Both JavaScript and CoffeeScript are supported.
+templates, mixins, data adapters, stores, and statechart files in a quick
+panel for easy selection. Both JavaScript and CoffeeScript are supported.
 
 Your are free to name your files however you want, and the location of each
 type of file can be customized either per user or per project (see below).
@@ -90,7 +90,7 @@ The defaults are as follows:
     "views_location":       ["views"],
     "templates_location":   ["templates"],
     "mixins_location":      ["mixins"],
-    "adapters_location":    ["adapters"],
+    "data_location":        ["data"],
     "states_location":      ["states"],
 
     "application_file":     ["app.(?:js|(?:js.)?coffee)(?:.erb)?"]
