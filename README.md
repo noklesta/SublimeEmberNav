@@ -4,7 +4,7 @@ Simple plugin for navigating [Ember.js](http://emberjs.com/) applications. It
 works in a similar way to my [Simple Rails
 Navigator](https://github.com/noklesta/SublimeRailsNav) and can be used in
 combination with that plugin to navigate the Ember.js part of a Rails
-application, but it can also be used for any other Ember.js project.
+application, but it can also be used with any other Ember.js project.
 
 The plugin provides commands for listing the following file types in a quick
 panel for easy selection: models, controllers, views, templates, mixins, data
