@@ -1,7 +1,7 @@
 # Sublime Text 2 plugin: Simple Ember.js Navigator
 
-Simple plugin for navigating Ember.js applications (http://emberjs.com/). It
-works in a similar way as my [Simple Rails
+Simple plugin for navigating [Ember.js](http://emberjs.com/) applications. It
+works in a similar way to my [Simple Rails
 Navigator](https://github.com/noklesta/SublimeRailsNav) and can be used in
 combination with that plugin to navigate the Ember.js part of a Rails
 application, but it can also be used for any other Ember.js project.
@@ -12,13 +12,14 @@ adapters, stores, statechart files, the main application file, and any other
 file located in the root directory of an Ember.js application. Both JavaScript
 and CoffeeScript are supported.
 
-Your are free to name your files however you want, and the location of each
-type of file can be customized either per user or per project (see below).
-However, if you choose to follow certain conventions (heavily inspired by Ruby
-on Rails), certain related files will be located at the top of the list so
-that they can be selected simply by pressing Enter. For instance, if the
-active view is an Ember model and you request a list of controllers, the
-controller(s) corresponding to the model will be listed at the top.
+The location of each type of file can be customized either per user or per
+project (see below). Furthermore, although you are free to name your files
+however you want, if you choose to follow certain conventions (heavily
+inspired by Ruby on Rails), some related files will be located at the top of
+the list so that they can be selected simply by pressing Enter. For instance,
+if the active ST2 view contains an Ember model and you request a list of
+controllers, the controller(s) corresponding to the model will be listed at
+the top.
 
 The following examples illustrate the conventions needed for the related files
 feature to work (the file names can end in either `.js`, `.coffee` or
@@ -37,6 +38,10 @@ A RecentPostsView and a corresponding handlebars template:
     recent_posts_view.js
     recent_posts_view.handlebars or recent_posts.handlebars
 
+Of course, the association between views and templates requires that you keep
+your Handlebars templates in separate files, perhaps using something like
+[ember_rails](https://github.com/emberjs /ember-rails) to pre-compile them.
+
 ## Installation
 
 ### Package Control
@@ -49,8 +54,8 @@ Control](http://wbond.net/sublime\_packages/package\_control).
  * Select "Package Control: Install Package" (it'll take a few seconds)
  * Select Simple Ember.js Navigator when the list appears.
 
-Package Control will automatically keep SublimeEmberNav up to date with the latest
-version.
+Package Control will automatically keep the Simple Ember.js Navigator up to
+date with the latest version.
 
 ### Clone from GitHub
 
@@ -91,10 +96,12 @@ beginning with "Simple Ember.js Navigator").
 
 ## File locations
 
-By default, the different files are assumed to be located in folders at the
-root of the project that are named after their type. Locations are specified
-as regular expressions that will automatically by anchored to the beginning
-and end of the path (with the root location prepended to all the other paths).
+By default, the different files are assumed to reside in folders at the
+project root that are named after their type. Locations are specified as lists
+of regular expressions, each representing a path segment that will be joined
+together using the directory separator that is appropriate for your platform.
+The name of the main application file is specified as a regular expression
+that will be automatically anchored to the beginning and end of the file name.
 The defaults are as follows:
 
     "root":                 [""],
@@ -107,7 +114,7 @@ The defaults are as follows:
     "data_location":        ["data"],
     "states_location":      ["states"],
 
-    "application_file":     ["app.(?:js|(?:js.)?coffee)(?:.erb)?"]
+    "application_file":     "app.(?:js|(?:js.)?coffee)(?:.erb)?"
 
 These settings are found in SublimeEmberNav.sublime-settings and may be
 overridden either in Packages/User/SublimeEmberNav.sublime-settings or, for a
