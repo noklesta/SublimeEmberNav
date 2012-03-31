@@ -33,7 +33,7 @@ for the currently selected post:
     posts_controller.js
     selected_post_controller.js or current_post_controller.js
 
-A RecentPostsView and a corresponding handlebars template:
+A RecentPostsView and a corresponding Handlebars template:
 
     recent_posts_view.js
     recent_posts_view.handlebars or recent_posts.handlebars
