@@ -11,10 +11,13 @@ TEMPLATE_EXTENSIONS = 'handlebars(?:.erb)?'
 
 class EmberCommandBase(sublime_plugin.WindowCommand):
     def prepare_run(self):
-        if hasattr(self, 'project_settings') and hasattr(self, 'root'):
-            return True
+        # If the project_settings property is set (even if it is None), we
+        # have already run find_settings, so there is no need to do it again
+        if not hasattr(self, 'project_settings'):
+            self.find_settings()
 
-        self.find_settings()
+        # Set the root property on each run to avoid stale values when we
+        # switch projects
         return self.find_root()
 
     def find_settings(self):
