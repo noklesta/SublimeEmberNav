@@ -90,6 +90,8 @@ class EmberCommandBase(sublime_plugin.WindowCommand):
 
     def file_selected(self, selected_index):
         if selected_index != -1:
+            if self.window.num_groups() > 1:
+                self.window.focus_group((self.window.active_group() + 1) % self.window.num_groups())
             self.window.open_file(self.files[selected_index])
 
     def remove_from_list(self, current_file):
